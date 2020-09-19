@@ -41,7 +41,7 @@ const Imagenes = () => {
 
      const obtenerImagenesYTotal = async (busqueda, pageactual) => {
           changeSpinner(true);
-           const {data} = await axios.get(`https://pixabay.com/api/?key=18355214-36a0c2880c4e39fc9a6698d8c&q=${busqueda}&per_page=${imagenespage}&page=${pageactual}&lang=es`);
+           const {data} = await axios.get(`https://pixabay.com/api/?key=${process.env.REACT_APP_API_KEY}&q=${busqueda}&per_page=${imagenespage}&page=${pageactual}&lang=es`);
             changeImagenes([...data.hits]);
             changeTotalImagenes(data.totalHits);
             changeSpinner(false);
